@@ -1,40 +1,730 @@
-<!DOCTYPE html>
-<html>
+   <!doctype html>
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta>
-    <title>My Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      // Theme
+      (function () {
+        var root = document.documentElement;
+        var theme = null;
+        root.classList.add("js");
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (e) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        }
+        root.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <title>Thakshila Maduwanthi | Portfolio</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Geist:wght@500;600;700&family=Geist+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
   </head>
-  
+
   <body>
-    <div class="nav-bar">
-      
-      <div class="nav-left">
-        <div class="icon">
-          <h4>T</h4>
+    <!-- Navigation -->
+    <header class="navbar">
+      <nav class="nav-container">
+        <a href="#home" class="logo">T</a>
+        <ul class="nav-links" id="nav-links">
+          <li class="nav-indicator" aria-hidden="true"></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="theme-buttons">
+          <button
+            type="button"
+            aria-label="Dark mode"
+            data-theme-set="dark"
+            aria-pressed="false"
+          >
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <button
+            type="button"
+            aria-label="Light mode"
+            data-theme-set="light"
+            aria-pressed="false"
+          >
+            <i class="fa-solid fa-sun"></i>
+          </button>
         </div>
-        <h3>Thakshila</h3>
-      </div>
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
 
-      <div class="nav-right">
-        <h3>About</h3>
-        <h3>Skills</h3>
-        <h3>Academic Projects</h3>
-        <h3>Experience</h3>
-        <h3>Education</h3>
-        <h3>Certifications</h3>
-        <h3>Contact</h3>
-      </div>
-    </div>
-
+    <!-- Hero Section -->
     <main>
-      <h5>Open to Internship Oppertunities</h5>
-      <h1>Hi, I'm <br> Thakshila Maduwanthi</h1>
-      
+      <section class="hero" id="home">
+        <!-- Background Decorations -->
+        <div class="hero-circle"></div>
+        <div class="hero-glow"></div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+          <div class="availability">
+            <span class="status-dot"></span>
+            Open to opportunities
+          </div>
+
+          <h2>Hi, I'm</h2>
+          <h1>Thakshila Maduwanthi</h1>
+
+          <p class="hero-description">
+            Final-year IT undergraduate |
+            <span class="changing-text"></span
+            ><span class="typing-cursor">|</span>
+          </p>
+
+          <!-- Buttons -->
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">
+              View Projects
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a
+              href="files/Thakshila_Maduwanthi_CV.pdf"
+              class="btn btn-outline"
+              download
+            >
+              <i class="fa-solid fa-download"></i>
+              Download CV
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="social-links">
+            <a
+              href="https://github.com/Thakshila17"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/thakshila17/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+            <a href="mailto:thakshilasenerath@gmail.com" aria-label="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Profile Image Area -->
+        <div class="hero-art">
+          <div class="art-circle"></div>
+
+          <!-- Circular Profile Image -->
+          <div class="profile-container">
+            <img
+              src="images/profile-picture1.jpg"
+              alt="Thakshila Maduwanthi - Profile Photo"
+              class="profile-photo"
+            />
+          </div>
+
+          <!-- Decorative Sparkles -->
+          <span class="sparkle sparkle-one">✦</span>
+          <span class="sparkle sparkle-two">✧</span>
+          <span class="sparkle sparkle-three">✦</span>
+        </div>
+      </section>
     </main>
+
+    <!-- ABOUT ME SECTION -->
+    <section class="about-section" id="about">
+      <!-- About Me Card -->
+      <div class="about-card">
+        <div class="about-description">
+          <h2>About Me</h2>
+
+          <p>
+            I am a dedicated and responsible <b>final-year</b> Bachelor of
+            Information Technology (BIT) <b>undergraduate</b> at the University
+            of Moratuwa, with a keen interest in technology and its practical
+            applications.
+          </p>
+          <br />
+          <p>
+            I have developed a foundation in
+            <b
+              >web development, database management, information systems and IT
+              support</b
+            >
+            through my academic studies and university projects. I enjoy
+            exploring new technologies, learning new skills and applying my
+            knowledge to develop practical solutions.
+          </p>
+          <br />
+          <p>
+            I am <b>looking forward to beginning my professional career</b>,
+            gaining industry experience and contributing my knowledge and skills
+            to a professional working environment.
+          </p>
+        </div>
+
+        <div class="about-details">
+          <!-- TOP TWO INFORMATION CARDS -->
+          <div class="about-info-cards">
+            <div class="about-info-card">
+              <i class="fa-solid fa-briefcase"></i>
+              <h3>06 Months</h3>
+              <p>Trainee ICT Technician</p>
+              <h5>NIPO, Sri Lanka</h5>
+            </div>
+
+            <div class="about-info-card">
+              <i class="fa-solid fa-certificate"></i>
+              <h3>Certifications</h3>
+              <p>NVQ 4 - ICT Technician</p>
+              <p>Microsoft & freeCodeCamp</p>
+            </div>
+          </div>
+
+          <!-- PROFESSIONAL INTERESTS BELOW -->
+          <div class="about-info-card interests-card">
+            <i class="fa-regular fa-star"></i>
+            <h3>Professional Interests</h3>
+            <p>
+              Web Development &nbsp; · &nbsp; UI/UX Design
+              <br />
+              Cybersecurity &nbsp; · &nbsp; Data Analytics
+            </p>
+          </div>
+
+          <!-- BASIC DETAILS AT THE BOTTOM -->
+          <div class="about-basic-details">
+            <div class="detail-item">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <p>University of<br />Moratuwa</p>
+            </div>
+
+            <div class="detail-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <p>Minuwangoda,<br />Sri Lanka</p>
+            </div>
+
+            <div class="detail-item">
+              <i class="fa-solid fa-handshake"></i>
+              <p>Seeking Internships /<br />Job Opportunities</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Section -->
+      <div class="skills-section" id="skills">
+        <div class="section-heading">
+          <span></span>
+          <h2>My Skills</h2>
+          <span></span>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill Card 1 -->
+          <div class="skill-card">
+            <i class="fa-solid fa-laptop-code"></i>
+
+            <h3>Web & Programming</h3>
+
+            <p>
+              HTML · CSS · JavaScript<br />
+              PHP · C# · Laravel · MySQL
+            </p>
+          </div>
+
+          <!-- Skill Card 2 -->
+          <div class="skill-card">
+            <i class="fa-solid fa-wrench"></i>
+
+            <h3>Tools & Productivity</h3>
+
+            <p>
+              Git/GitHub · Windows OS<br />
+              MS Word · MS Excel <br />
+              MS PowerPoint
+            </p>
+          </div>
+
+          <!-- Skill Card 3 -->
+          <div class="skill-card">
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <h3>IT Fundamentals & Support</h3>
+
+            <p>
+              Networking · Troubleshooting<br />
+              Software Support<br />
+              Database Management
+            </p>
+          </div>
+
+          <!-- Skill Card 4 -->
+          <div class="skill-card">
+            <i class="fa-solid fa-users"></i>
+
+            <h3>Core Soft Skills</h3>
+
+            <p>
+              Communication · Teamwork<br />
+              Time Management · Problem Solving <br />
+              Adaptability
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects-section" id="projects">
+      <div class="section-heading">
+        <span></span>
+        <h2>Academic Projects</h2>
+        <span></span>
+      </div>
+
+      <div class="projects-container">
+        <!-- GuideMate Project -->
+        <div class="project-card guidemate">
+          <div class="project-image">
+            <img src="images/GuideMate-interface.jpg" alt="GuideMate Project" />
+            <span class="project-category">Full-Stack Web App</span>
+          </div>
+
+          <div class="project-content">
+            <h3>GuideMate – One-Day Tourist Guide System</h3>
+
+            <p class="project-description">
+              A comprehensive web-based travel planning platform built to help
+              travelers organize seamless one-day trips with interactive map
+              routing and smart attraction discovery.
+            </p>
+
+            <ul class="project-features">
+              <li>User authentication and registration</li>
+              <li>
+                Attraction search, category filtering and route generation
+              </li>
+              <li>Interactive maps and navigation using OpenStreetMap</li>
+            </ul>
+
+            <div class="tech-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Bootstrap</span>
+              <span>PHP</span>
+              <span>Laravel</span>
+              <span>MySQL</span>
+              <span>OpenStreetMap</span>
+              <span>Leaflet</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://github.com/Thakshila17/GuideMate-One-Day-Tourist-Web-System"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="github-btn"
+              >
+                GitHub Repository ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Book World Project -->
+        <div class="project-card bookworld">
+          <div class="project-image">
+            <img
+              src="images/BookWorld-interface.jpg"
+              alt="Book World Project"
+            />
+            <span class="project-category">Responsive Multi-Page UI</span>
+          </div>
+
+          <div class="project-content">
+            <h3>Book World – Bookshop Website</h3>
+
+            <p class="project-description">
+              A multi-page, user-friendly, responsive bookshop web application
+              engineered for effortless browsing across diverse literary and
+              stationery collections.
+            </p>
+
+            <ul class="project-features">
+              <li>
+                Multi-page structure with Home, Categories, Testimonials and
+                Contact
+              </li>
+              <li>Dedicated sections for different book categories</li>
+              <li>Responsive desktop and mobile layout</li>
+            </ul>
+
+            <div class="tech-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>Responsive Design</span>
+              <span>UI/UX</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://github.com/Thakshila17/book-world-website"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="github-btn"
+              >
+                GitHub Repository ↗
+              </a>
+
+              <a
+                href="https://thakshila17.github.io/book-world-website/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="demo-link"
+              >
+                Live Demo ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MY JOURNEY SECTION -->
+    <section class="career-section" id="experience">
+      <!-- Common Heading -->
+      <div class="section-heading">
+        <span></span>
+        <h2>My Journey</h2>
+        <span></span>
+      </div>
+
+      <div class="career-container">
+        <!-- PROFESSIONAL EXPERIENCE -->
+        <div class="career-column">
+          <div class="career-heading">
+            <div class="career-heading-icon">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <h3>Professional Experience</h3>
+          </div>
+
+          <div class="career-timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+
+              <div class="timeline-content">
+                <span class="timeline-date">2024 Jul – 2025 Jan</span>
+
+                <h4>Trainee ICT Technician</h4>
+
+                <h5>National Intellectual Property Office – Sri Lanka</h5>
+
+                <ul class="timeline-list">
+                  <li>
+                    Digitized and organized trademark records by designing a
+                    consistent filing and data-entry workflow within the
+                    office's web-based information system, improving retrieval
+                    speed for staff.
+                  </li>
+                  <li>
+                    Reduced customer wait times for trademark inquiries by
+                    retrieving and verifying records across electronic databases
+                    to support daily customer requests.
+                  </li>
+                  <li>
+                    Maintained reliable uptime on assigned desktop systems by
+                    proactively installing, configuring, and troubleshooting
+                    software and hardware for end users.
+                  </li>
+                </ul>
+                <br />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="career-column">
+          <div class="career-heading">
+            <div class="career-heading-icon">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3>Education</h3>
+          </div>
+
+          <div class="career-timeline">
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+
+              <div class="timeline-content">
+                <span class="timeline-date">2024 Aug – Present</span>
+
+                <h4>Bachelor of Information Technology</h4>
+
+                <h5>External Degree – University of Moratuwa</h5>
+              </div>
+            </div>
+            <br />
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+
+              <div class="timeline-content">
+                <span class="timeline-date">Sep 2025 – Jul 2026</span>
+
+                <h4>Aquinas Diploma in English Language and Literature</h4>
+
+                <h5>BCI Campus, Negombo</h5>
+              </div>
+            </div>
+            <br />
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+
+              <div class="timeline-content">
+                <span class="timeline-date">Jan 2024 – Jul 2024</span>
+
+                <h4>
+                  Certificate in Information and Communication Technology
+                  Technician
+                </h4>
+
+                <h5>NVQ Level 4 – Vocational Training Centre, Veyangoda</h5>
+              </div>
+            </div>
+            <br />
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATIONS SECTION -->
+      <section class="certifications-section" id="certifications">
+        <div class="section-heading">
+          <span></span>
+          <h2>Certifications</h2>
+          <span></span>
+        </div>
+
+        <div class="certifications-container">
+          <!-- Certificate 1 -->
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
+
+            <div class="certificate-content">
+              <span class="certificate-date">Apr 2026</span>
+              <h3>Foundational C# with Microsoft</h3>
+
+              <p class="certificate-issuer">Microsoft & freeCodeCamp</p>
+
+              <a
+                href="https://www.freecodecamp.org/certification/thakshila17/foundational-c-sharp-with-microsoft"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="certificate-link"
+              >
+                View Certificate
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Certificate 2 -->
+          <div class="certificate-card">
+            <div class="certificate-icon">
+              <i class="fa-solid fa-award"></i>
+            </div>
+
+            <div class="certificate-content">
+              <span class="certificate-date">Aug 2026</span>
+              <h3>Relational Database Certification</h3>
+
+              <p class="certificate-issuer">freeCodeCamp</p>
+
+              <a
+                href="https://www.freecodecamp.org/certification/thakshila17/relational-databases-v9"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="certificate-link"
+              >
+                View Certificate
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section" id="contact">
+      <div class="section-heading">
+        <span></span>
+        <h2>Contact Me</h2>
+        <span></span>
+      </div>
+
+      <div class="contact-container">
+        <!-- Left Side: Contact Information -->
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <h3>Email</h3>
+              <p>thakshilasenerath@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <h3>Phone</h3>
+              <p>+94 72 672 4505</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <h3>Minuwangoda</h3>
+              <p>Sri Lanka</p>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div class="social-area">
+            <div class="social-links-3">
+              <a
+                href="https://github.com/Thakshila17"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <i class="fa-brands fa-github"></i>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/thakshila17/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+
+              <a
+                href="tel:+94726724505"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Contact Form -->
+        <div class="contact-form-container">
+          <h3>Send a Message</h3>
+
+          <form action="https://formspree.io/f/moedykra" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <textarea
+                name="message"
+                rows="6"
+                placeholder="Your Message"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="send-btn">
+              <i class="fa-solid fa-paper-plane"></i>
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <a href="#home" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+      </a>
+
+      <p class="copyright">© 2026 <strong>Thakshila Maduwanthi</strong></p>
+    </footer>
+    <script src="script.js" defer></script>
   </body>
 </html>
-
 
 
 
